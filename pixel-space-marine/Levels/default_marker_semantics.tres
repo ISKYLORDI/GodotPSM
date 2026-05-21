@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DungeonMarkerSemanticsConfig" format=3 uid="uid://br2rvj7wuakit"]
+
+[ext_resource type="Script" uid="uid://bdcuxgbrixbc7" path="res://dungeon_marker_semantics_config.gd" id="1_sem"]
+
+[resource]
+script = ExtResource("1_sem")
+marker_wall_tiles = Array[Vector2i]([Vector2i(5, 0)])
+marker_transparent_wall_tiles = Array[Vector2i]([Vector2i(21, 0)])
+marker_ricochet_wall_tiles = Array[Vector2i]([Vector2i(5, 12)])
+marker_wall_switch_face_up_tiles = Array[Vector2i]([Vector2i(10, 3)])
+marker_wall_switch_face_down_tiles = Array[Vector2i]([Vector2i(10, 2)])
+marker_wall_switch_floor_west_appr_tiles = Array[Vector2i]([Vector2i(13, 3)])
+marker_wall_switch_floor_east_appr_tiles = Array[Vector2i]([Vector2i(12, 3)])
+marker_wall_switch_tiles = Array[Vector2i]([Vector2i(10, 2)])
+marker_floor_tiles = Array[Vector2i]([Vector2i(33, 1)])
+marker_door_tiles = Array[Vector2i]([Vector2i(0, 18)])
+marker_inactive_door_tiles = Array[Vector2i]([Vector2i(0, 19)])
+marker_exit_tiles = Array[Vector2i]([Vector2i(0, 20)])
+marker_player_spawn_tiles = Array[Vector2i]([Vector2i(9, 7)])
+marker_enemy_tiles = Array[Vector2i]([Vector2i(7, 7)])
+marker_pillar_tiles = Array[Vector2i]([Vector2i(0, 9)])
+marker_barrel_tiles = Array[Vector2i]([Vector2i(0, 0)])
+marker_liquid_tiles = Array[Vector2i]([Vector2i(0, 1)])
+marker_abyss_tiles = Array[Vector2i]([Vector2i(35, 1)])

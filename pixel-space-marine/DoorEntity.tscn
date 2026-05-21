@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://hejpi772wrc7"]
+
+[ext_resource type="Script" uid="uid://1iko6843wm4u" path="res://door_entity.gd" id="1_door_script"]
+[ext_resource type="Texture2D" uid="uid://b3gemk8ej2t85" path="res://Resources/Tech Dungeon Roguelite - Asset Pack (v7)/Props and Items/props and items x1.png" id="2_props"]
+
+[sub_resource type="Animation" id="Animation_npuo4"]
+resource_name = "Activate"
+length = 0.25000626
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [432, 504, 505, 506]
+}
+
+[sub_resource type="Animation" id="Animation_n8qso"]
+resource_name = "Idle"
+length = 0.5000125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [408, 409, 410, 411]
+}
+
+[sub_resource type="Animation" id="Animation_88m7q"]
+resource_name = "Open"
+length = 0.25000626
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [509, 510, 514, 515]
+}
+
+[sub_resource type="Animation" id="Animation_hiu75"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [504]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hcidt"]
+_data = {
+&"Activate": SubResource("Animation_npuo4"),
+&"Idle": SubResource("Animation_n8qso"),
+&"Open": SubResource("Animation_88m7q"),
+&"RESET": SubResource("Animation_hiu75")
+}
+
+[node name="GridDoor" type="Node2D" unique_id=1522178342]
+script = ExtResource("1_door_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2015730582]
+texture_filter = 1
+texture = ExtResource("2_props")
+hframes = 24
+vframes = 22
+frame = 504
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1968186501]
+libraries/ = SubResource("AnimationLibrary_hcidt")

@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://cs8ernr6qvfbe"]
+
+[ext_resource type="Texture2D" uid="uid://dv0y68dr82qx0" path="res://Resources/Tech Dungeon Roguelite - Asset Pack (v7)/Enemies/enemies x1.png" id="1_s7bn3"]
+[ext_resource type="Script" uid="uid://dns24ok4u2pyw" path="res://enemy_grid_controller.gd" id="2_2hac7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6d4v"]
+atlas = ExtResource("1_s7bn3")
+
+[sub_resource type="Animation" id="Animation_qp131"]
+resource_name = "Attack"
+length = 0.5
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_6do27"]
+resource_name = "Death"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 32, 33, 34, 35, 36, 37]
+}
+
+[sub_resource type="Animation" id="Animation_rvmyp"]
+resource_name = "Idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_2nxwx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_52xpa"]
+resource_name = "Walk"
+length = 0.5000125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jdgko"]
+_data = {
+&"Attack": SubResource("Animation_qp131"),
+&"Death": SubResource("Animation_6do27"),
+&"Idle": SubResource("Animation_rvmyp"),
+&"RESET": SubResource("Animation_2nxwx"),
+&"Walk": SubResource("Animation_52xpa")
+}
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1701853779]
+texture_filter = 1
+texture = SubResource("AtlasTexture_e6d4v")
+hframes = 10
+vframes = 38
+script = ExtResource("2_2hac7")
+move_duration = 0.1
+max_hp = 2
+detection_range = 10
+detection_flash_color = Color(0.91799355, 0, 0.083197035, 1)
+lost_flash_color = Color(2.117753e-06, 0.9934394, 0.85959196, 1)
+floating = true
+attack_animation_speed_scale = 1.6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1812610593]
+libraries/ = SubResource("AnimationLibrary_jdgko")

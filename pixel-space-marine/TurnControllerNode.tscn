@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://0u11tf6ypcgb"]
+
+[ext_resource type="Script" uid="uid://dsn1uhx0momdy" path="res://turn_controller.gd" id="1_turn_controller_script"]
+
+[node name="TurnController" type="Node" unique_id=641135314]
+script = ExtResource("1_turn_controller_script")
+combat_pause_duration = 0.0
+projectile_travel_speed = 1600.0
+default_fire_duration_turns = 4

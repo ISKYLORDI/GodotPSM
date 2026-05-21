@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://breakable_pillar_spawner.gd" id="1_pillar_spawner_script"]
+[ext_resource type="PackedScene" path="res://BreakablePillar.tscn" id="2_pillar_scene"]
+
+[node name="BreakablePillarSpawner" type="Node"]
+script = ExtResource("1_pillar_spawner_script")
+pillar_scene = ExtResource("2_pillar_scene")

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://yqmi533j83ii"]
+
+[ext_resource type="Texture2D" uid="uid://dl4h718m14ngj" path="res://Resources/Tech Dungeon Roguelite - Asset Pack (v7)/Props and Items/props and items x2.png" id="1_c5uxf"]
+[ext_resource type="Script" uid="uid://cqiqoxjdjc2o3" path="res://flammable_liquid.gd" id="1_liquid_script"]
+[ext_resource type="Texture2D" uid="uid://b3gemk8ej2t85" path="res://Resources/Tech Dungeon Roguelite - Asset Pack (v7)/Props and Items/props and items x1.png" id="3_6pkox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pkox"]
+atlas = ExtResource("1_c5uxf")
+
+[node name="FlammableLiquid" type="Sprite2D" unique_id=273690457]
+texture_filter = 1
+texture = SubResource("AtlasTexture_6pkox")
+hframes = 24
+vframes = 22
+frame = 24
+script = ExtResource("1_liquid_script")
+liquid_idle_h = 0.28
+liquid_idle_s = 0.62
+liquid_idle_v = 3.33
+liquid_idle_a = 2.0
+liquid_burning_s = 0.89
+liquid_atlas_texture = ExtResource("3_6pkox")
+liquid_hframes = 24
+liquid_vframes = 22
+liquid_idle_frame_coords = Vector2i(0, 1)
+liquid_burning_frame_coords = Vector2i(0, 1)
+liquid_idle_frame_options = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 1)])
+liquid_burning_frame_options = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 1)])

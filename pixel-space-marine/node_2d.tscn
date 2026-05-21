@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bfpae87orb2wu"]
+
+[ext_resource type="Script" uid="uid://dey8nu0788v1x" path="res://dungeon_generator.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://dplw5x038s6m3" path="res://player_grid_controller.gd" id="2_0e48y"]
+[ext_resource type="Script" path="res://dungeon_camera.gd" id="3_cam"]
+[ext_resource type="Script" path="res://fog_of_war.gd" id="4_fog"]
+[ext_resource type="Script" path="res://turn_controller.gd" id="5_turn"]
+[ext_resource type="Script" path="res://enemy_spawner.gd" id="6_spawn"]
+[ext_resource type="Script" path="res://breakable_pillar_spawner.gd" id="7_pillar_spawn"]
+[ext_resource type="PackedScene" path="res://Enemy.tscn" id="8_enemy_scene"]
+[ext_resource type="PackedScene" path="res://BreakablePillar.tscn" id="9_breakable_pillar_scene"]
+
+[node name="Node2D" type="Node2D" unique_id=2041581109]
+y_sort_enabled = true
+
+[node name="DungeonGenerator" type="Node" parent="." unique_id=1200806636]
+script = ExtResource("1_wtcfe")
+
+[node name="TurnController" type="Node" parent="." unique_id=910100001]
+script = ExtResource("5_turn")
+dungeon_generator_path = NodePath("../DungeonGenerator")
+player_path = NodePath("../Player")
+world_path = NodePath("")
+
+[node name="EnemySpawner" type="Node" parent="." unique_id=910100002]
+script = ExtResource("6_spawn")
+dungeon_generator_path = NodePath("../DungeonGenerator")
+player_path = NodePath("../Player")
+world_path = NodePath("")
+turn_controller_path = NodePath("../TurnController")
+enemy_scene = ExtResource("8_enemy_scene")
+
+[node name="BreakablePillarSpawner" type="Node" parent="." unique_id=910100003]
+script = ExtResource("7_pillar_spawn")
+dungeon_generator_path = NodePath("../DungeonGenerator")
+world_path = NodePath("")
+pillar_scene = ExtResource("9_breakable_pillar_scene")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=175579116]
+script = ExtResource("3_cam")
+dungeon_generator_path = NodePath("../DungeonGenerator")
+player_path = NodePath("../Player")
+
+[node name="Player" type="Sprite2D" parent="." unique_id=462307357]
+script = ExtResource("2_0e48y")
+dungeon_generator_path = NodePath("../DungeonGenerator")
+
+[node name="FogOfWar" type="Node2D" parent="." unique_id=900000002]
+z_index = 90
+script = ExtResource("4_fog")
+dungeon_generator_path = NodePath("../DungeonGenerator")
+player_path = NodePath("../Player")

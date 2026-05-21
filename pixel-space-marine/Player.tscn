@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://l223k0nuf2s5"]
+
+[ext_resource type="Texture2D" uid="uid://dngjkpn10qcew" path="res://Resources/Tech Dungeon Roguelite - Asset Pack (v7)/Players/players blue x1.png" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://dplw5x038s6m3" path="res://player_grid_controller.gd" id="2_kne1u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e80uo"]
+atlas = ExtResource("1_kpjcp")
+
+[sub_resource type="Animation" id="Animation_e80uo"]
+resource_name = "Aim"
+length = 0.3750125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [20, 21, 43]
+}
+
+[sub_resource type="Animation" id="Animation_tdg3f"]
+resource_name = "AimUnload"
+length = 0.2500125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [21, 22]
+}
+
+[sub_resource type="Animation" id="Animation_cxr5p"]
+resource_name = "Attack"
+length = 0.3750125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43]
+}
+
+[sub_resource type="Animation" id="Animation_kpjcp"]
+resource_name = "Death"
+length = 0.75
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 52, 53, 54, 55, 56]
+}
+
+[sub_resource type="Animation" id="Animation_hqns4"]
+resource_name = "Idle"
+length = 0.083341666
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_x0ka3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kne1u"]
+resource_name = "Reload"
+length = 0.5000125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_0h7mo"]
+resource_name = "Walk"
+length = 0.5000125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 32, 33]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdg3f"]
+_data = {
+&"Aim": SubResource("Animation_e80uo"),
+&"AimUnload": SubResource("Animation_tdg3f"),
+&"Attack": SubResource("Animation_cxr5p"),
+&"Death": SubResource("Animation_kpjcp"),
+&"Idle": SubResource("Animation_hqns4"),
+&"RESET": SubResource("Animation_x0ka3"),
+&"Reload": SubResource("Animation_kne1u"),
+&"Walk": SubResource("Animation_0h7mo")
+}
+
+[node name="Player" type="Sprite2D" unique_id=1209256008]
+texture_filter = 1
+scale = Vector2(1.535, 1.535)
+texture = SubResource("AtlasTexture_e80uo")
+offset = Vector2(0, -10.75)
+hframes = 10
+vframes = 13
+script = ExtResource("2_kne1u")
+dungeon_generator_path = NodePath("../../DungeonGenerator")
+wall_bump_distance_ratio = 0.1
+diagonal_input_window = 0.05
+hold_repeat_interval = 0.05
+footstep_repeat_interval = 0.25
+attack_animation_speed_scale = 1.7000000000000002
+reload_animation_speed_scale = 1.3
+auto_fit_sprite_to_tile = false
+melee_lunge_distance_ratio = 1.0
+ranged_clip_size = 10
+ranged_max_distance = 100
+ranged_attack_animation_speed_scale = 1.2000000000000002
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1589631895]
+libraries/ = SubResource("AnimationLibrary_tdg3f")

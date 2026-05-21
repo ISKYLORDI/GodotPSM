@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://breakable_barrel_spawner.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://BreakableBarrel.tscn" id="2_barrel"]
+
+[node name="BreakableBarrelSpawner" type="Node"]
+script = ExtResource("1_script")
+barrel_scene = ExtResource("2_barrel")

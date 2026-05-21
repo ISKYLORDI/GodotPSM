@@ -1,0 +1,75 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://abyss_particles_controller.gd" id="1_controller"]
+[ext_resource type="Shader" path="res://abyss_atmosphere.gdshader" id="2_atmosphere"]
+
+[sub_resource type="Gradient" id="Gradient_abyss"]
+offsets = PackedFloat32Array(0, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.85, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_abyss"]
+gradient = SubResource("Gradient_abyss")
+
+[sub_resource type="Gradient" id="Gradient_particle_tex"]
+offsets = PackedFloat32Array(0, 0.45, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.85, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_particle_tex"]
+gradient = SubResource("Gradient_particle_tex")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+width = 32
+height = 32
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_abyss"]
+emission_shape = 2
+emission_box_extents = Vector3(400, 300, 1)
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, -2, 0)
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+scale_min = 0.25
+scale_max = 0.9
+color = Color(0.55, 0.7, 1, 0.28)
+hue_variation_min = -0.04
+hue_variation_max = 0.04
+color_ramp = SubResource("GradientTexture1D_abyss")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_atmosphere"]
+shader = ExtResource("2_atmosphere")
+shader_parameter/map_size = Vector2(1024, 1024)
+shader_parameter/top_tint = Color(0.03, 0.05, 0.09, 0.15)
+shader_parameter/bottom_tint = Color(0, 0, 0, 0.55)
+shader_parameter/dust_alpha = 0.22
+shader_parameter/dust_tiling = 8.0
+shader_parameter/dust_speed = 0.06
+
+[node name="AbyssParticles" type="Node2D"]
+script = ExtResource("1_controller")
+
+[node name="FogRect" type="ColorRect" parent="."]
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+color = Color(1, 1, 1, 1)
+material = SubResource("ShaderMaterial_atmosphere")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = true
+amount = 300
+lifetime = 8.0
+one_shot = false
+preprocess = 1.5
+explosiveness = 0.0
+randomness = 0.75
+fixed_fps = 30
+fract_delta = true
+local_coords = false
+process_material = SubResource("ParticleProcessMaterial_abyss")
+texture = SubResource("GradientTexture2D_particle_tex")
+

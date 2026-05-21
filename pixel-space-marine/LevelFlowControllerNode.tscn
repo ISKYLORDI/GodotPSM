@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b5h3w1hwotopc"]
+
+[ext_resource type="Script" uid="uid://bv0cv43san6js" path="res://level_flow_controller.gd" id="1_7mohf"]
+[ext_resource type="Resource" uid="uid://bwl73gka17qoq" path="res://level_flow_config.tres" id="2_u6k1y"]
+
+[node name="LevelFlowController" type="Node" unique_id=663118049]
+script = ExtResource("1_7mohf")
+config = ExtResource("2_u6k1y")

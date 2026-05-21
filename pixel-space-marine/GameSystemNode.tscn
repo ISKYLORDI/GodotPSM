@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://duuk2ikwjrope"]
+
+[ext_resource type="Script" uid="uid://cfspsnlers5ki" path="res://game_system.gd" id="1_game_system"]
+[ext_resource type="PackedScene" uid="uid://b5h3w1hwotopc" path="res://LevelFlowControllerNode.tscn" id="2_level_flow"]
+[ext_resource type="PackedScene" uid="uid://0u11tf6ypcgb" path="res://TurnControllerNode.tscn" id="3_turn"]
+[ext_resource type="PackedScene" path="res://EnemySpawnerNode.tscn" id="4_enemy_spawn"]
+[ext_resource type="PackedScene" path="res://BreakableBarrelSpawnerNode.tscn" id="5b_barrel_spawn"]
+[ext_resource type="PackedScene" path="res://BreakablePillarSpawnerNode.tscn" id="5_pillar_spawn"]
+[ext_resource type="PackedScene" uid="uid://dffecv4u4hmqm" path="res://FogOfWarNode.tscn" id="6_fog"]
+[ext_resource type="PackedScene" path="res://DungeonCameraNode.tscn" id="7_camera"]
+[ext_resource type="PackedScene" uid="uid://l223k0nuf2s5" path="res://Player.tscn" id="8_player"]
+
+[node name="GameSystem" type="Node2D" unique_id=952404263]
+y_sort_enabled = true
+script = ExtResource("1_game_system")
+
+[node name="LevelFlowController" parent="." unique_id=663118049 instance=ExtResource("2_level_flow")]
+current_floor_index = 4
+
+[node name="TurnController" parent="." unique_id=1842462653 instance=ExtResource("3_turn")]
+projectile_travel_min_duration = 0.05
+projectile_travel_max_duration = 0.1
+
+[node name="EnemySpawner" parent="." unique_id=1974219769 instance=ExtResource("4_enemy_spawn")]
+
+[node name="BreakablePillarSpawner" parent="." unique_id=1701293201 instance=ExtResource("5_pillar_spawn")]
+
+[node name="BreakableBarrelSpawner" parent="." unique_id=173585021 instance=ExtResource("5b_barrel_spawn")]
+
+[node name="Camera2D" parent="." unique_id=276541069 instance=ExtResource("7_camera")]
+initial_zoom = 2.0
+
+[node name="Player" parent="." unique_id=552838110 instance=ExtResource("8_player")]
+z_index = -10
+z_as_relative = false
+
+[node name="FogofWar" parent="." unique_id=615154591 instance=ExtResource("6_fog")]
+unseen_alpha = 0.6

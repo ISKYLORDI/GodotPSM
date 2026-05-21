@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://b3jwsw2k4g63s"]
+
+[ext_resource type="Script" uid="uid://bvijai4omtw3l" path="res://breakable_barrel.gd" id="1_barrel"]
+[ext_resource type="Texture2D" uid="uid://b3gemk8ej2t85" path="res://Resources/Tech Dungeon Roguelite - Asset Pack (v7)/Props and Items/props and items x1.png" id="1_vtd3n"]
+[ext_resource type="TileSet" uid="uid://dfbiqm0r4cjti" path="res://TileSetMain.tres" id="3_823ae"]
+
+[sub_resource type="Animation" id="Animation_823ae"]
+resource_name = "Floats"
+length = 2.5
+loop_mode = 2
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(":frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [77, 76, 75, 74, 78, 79, 79, 78, 74, 75, 76]
+}
+
+[sub_resource type="Animation" id="Animation_8en5f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(":frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [74]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [75]
+}
+
+[sub_resource type="Animation" id="Animation_sink"]
+resource_name = "Sink"
+length = 0.5000125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [74, 75, 76, 77]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c70fy"]
+_data = {
+&"Floats": SubResource("Animation_823ae"),
+&"RESET": SubResource("Animation_8en5f"),
+&"Sink": SubResource("Animation_sink")
+}
+
+[node name="BreakableBarrel" type="Sprite2D" unique_id=2135994155]
+texture_filter = 1
+texture = ExtResource("1_vtd3n")
+hframes = 24
+vframes = 22
+frame = 75
+script = ExtResource("1_barrel")
+max_hp = 100
+knockback_wall_try_slide_along_face_first = false
+barrel_impact_sfx_names = PackedStringArray("Impact1", "Impact2", "Impact3", "Impact4", "Impact5", "Impact6")
+debug_show_abyss_weight = true
+editor_atlas_pick_tile_set = ExtResource("3_823ae")
+editor_atlas_pick_source_id = 1
+atlas_coords = Vector2i(1, 0)
+abyss_submerged_atlas_coords = Vector2i(0, 0)
+abyss_submerged_atlas_tiles = Array[Vector2i]([Vector2i(0, 0)])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1140593006]
+libraries/ = SubResource("AnimationLibrary_c70fy")

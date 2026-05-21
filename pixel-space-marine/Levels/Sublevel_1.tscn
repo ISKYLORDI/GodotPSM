@@ -1,0 +1,33 @@
+[gd_scene format=4 uid="uid://d3wjgve5isb6r"]
+
+[ext_resource type="Script" uid="uid://bxxuq6cbnxebm" path="res://preset_floor_layout.gd" id="1_kmuwh"]
+[ext_resource type="TileSet" uid="uid://dfbiqm0r4cjti" path="res://TileSetMain.tres" id="2_f3n0v"]
+[ext_resource type="Resource" uid="uid://br2rvj7wuakit" path="res://Levels/default_marker_semantics.tres" id="2_wdfxo"]
+
+[node name="PresetFloorLayout" type="Node2D" unique_id=1775095258 node_paths=PackedStringArray("design_tile_map_layer")]
+script = ExtResource("1_kmuwh")
+design_tile_map_layer = NodePath("TileMapLayer")
+marker_alt_source_id = 1
+marker_door_source_id = 1
+marker_pillar_source_id = 1
+marker_barrel_source_id = 1
+marker_bundle = ExtResource("2_wdfxo")
+marker_wall_tiles = Array[Vector2i]([Vector2i(5, 0)])
+marker_floor_tiles = Array[Vector2i]([Vector2i(33, 1)])
+marker_door_tiles = Array[Vector2i]([Vector2i(0, 18)])
+marker_exit_tiles = Array[Vector2i]([Vector2i(0, 17)])
+marker_player_spawn_tiles = Array[Vector2i]([Vector2i(9, 7)])
+marker_enemy_tiles = Array[Vector2i]([Vector2i(7, 7)])
+marker_pillar_tiles = Array[Vector2i]([Vector2i(0, 9)])
+suppress_procedural_breakable_pillars = true
+camera_enable_control = false
+camera_maintain_zoom = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=821420567]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAP7/AAAFAAAAAQAAAP//AAAhAAEAAQAAAAAAAAAFAAAAAQABAP7/AAAFAAAAAQABAP//AAAhAAEAAQABAAAAAAAFAAAAAQACAP7/AAAFAAAAAQACAP//AAAhAAEAAQACAAAAAAAFAAAAAQADAP3/AAAFAAAAAQADAP7/AAAFAAAAAQADAP//AQAAABIAAAADAAAAAAAFAAAAAQADAAEAAAAFAAAAAQAEAP3/AAAFAAAAAQAEAP7/AAAhAAEAAQAEAP//AAAhAAEAAQAEAAAAAAAhAAEAAQAEAAEAAAAFAAAAAQAFAP3/AAAFAAAAAQAFAP7/AAAhAAEAAQAFAAAAAAAhAAEAAQAFAAEAAAAFAAAAAQAGAP3/AAAFAAAAAQAGAP7/AAAhAAEAAQAGAP//AAAhAAEAAQAGAAAAAAAhAAEAAQAGAAEAAAAFAAAAAQAHAP3/AAAFAAAAAQAHAP7/AAAFAAAAAQAHAP//AAAFAAAAAQAHAAAAAAAFAAAAAQAHAAEAAAAFAAAAAQD3/wEAAAAFAAAAAQD4//7/AAAhAAEAAQD4////AAAhAAEAAQD4/wAAAAAhAAEAAQD4/wEAAAAFAAAAAQD5//3/AAAVAAAAAQD5//7/AAAhAAEAAQD5////AQAJAAcAAQD5/wAAAAAhAAEAAQD5/wEAAAAFAAwAAQD6//3/AAAFAAAAAQD6//7/AAAhAAEAAQD6////AAAhAAEAAQD6/wEAAAAFAAAAAQD7//3/AAAFAAAAAQD7//7/AAAFAAAAAQD7/wAAAAAFAAAAAQD7/wEAAAAFAAAAAQD8//7/AAAFAAAAAQD8////AAAhAAEAAQD8/wAAAAAFAAAAAQD9//7/AAAFAAAAAQD9////AAAhAAEAAQD9/wAAAAAFAAAAAQD+//7/AAAFAAAAAQD+////AAAhAAEAAQD+/wAAAAAFAAAAAQD//wAAAAAFAAAAAQD/////AAAhAAEAAQD///7/AAAFAAAAAQD3//3/AAAFAAAAAQD3//7/AAAFAAAAAQD4//3/AAAFAAAAAQD3////AAAFAAAAAQD3/wAAAAAFAAAAAQAFAP//AQAAABQAAQD6/wAAAAAhAAEAAQD7////AQAAABIAAAA=")
+tile_set = ExtResource("2_f3n0v")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=231205134]
+tile_map_data = PackedByteArray("AAD+////AQAAAAEAAQA=")
+tile_set = ExtResource("2_f3n0v")

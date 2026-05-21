@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://4413ryvo3f2p"]
+
+[ext_resource type="Script" uid="uid://dey8nu0788v1x" path="res://dungeon_generator.gd" id="1_dungeon_generator_script"]
+[ext_resource type="TileSet" uid="uid://dfbiqm0r4cjti" path="res://TileSetMain.tres" id="2_tile_set_main"]
+[ext_resource type="TileSet" uid="uid://ccji7my88i1jg" path="res://TileSetOverlay.tres" id="3_tile_set_overlay"]
+[ext_resource type="PackedScene" uid="uid://hejpi772wrc7" path="res://DoorEntity.tscn" id="6_door_entity_scene"]
+[ext_resource type="PackedScene" uid="uid://crexitgrid001" path="res://ExitEntity.tscn" id="7_exit_entity_scene"]
+[ext_resource type="PackedScene" uid="uid://cfr2rjr8xfctc" path="res://WallSwitchEntity.tscn" id="8_wall_switch_scene"]
+
+[node name="DungeonGenerator" type="Node" unique_id=663118049 node_paths=PackedStringArray("tile_map_layer", "tile_map_layer_pillar", "tile_map_layer_door", "tile_map_layer_exit")]
+script = ExtResource("1_dungeon_generator_script")
+tile_size = 32
+max_room_size = 12
+room_padding = 5
+max_connection_attempts = 300
+tile_map_layer = NodePath("TileMapLayer")
+floor_tiles = Array[Vector2i]([Vector2i(32, 1), Vector2i(32, 2), Vector2i(33, 1), Vector2i(34, 1)])
+abyss_tiles = Array[Vector2i]([Vector2i(35, 2)])
+abyss_tiles_when_north_is_abyss = Array[Vector2i]([Vector2i(35, 3)])
+solid_wall_tiles = Array[Vector2i]([])
+solid_diagonal_ne_tiles = Array[Vector2i]([Vector2i(8, 1)])
+solid_diagonal_nw_tiles = Array[Vector2i]([Vector2i(2, 1)])
+solid_diagonal_se_tiles = Array[Vector2i]([Vector2i(8, 9)])
+solid_diagonal_sw_tiles = Array[Vector2i]([Vector2i(2, 9)])
+corridor_horizontal_wall_tiles = Array[Vector2i]([Vector2i(9, 2)])
+corridor_vertical_wall_tiles = Array[Vector2i]([Vector2i(5, 10)])
+corner_top_left_tiles = Array[Vector2i]([Vector2i(8, 10)])
+corner_top_right_tiles = Array[Vector2i]([Vector2i(2, 10)])
+corner_bottom_left_tiles = Array[Vector2i]([Vector2i(9, 1)])
+corner_bottom_right_tiles = Array[Vector2i]([Vector2i(1, 1)])
+transparent_wall_alpha = 0.53
+ricochet_decor_corner_top_left_tiles = Array[Vector2i]([Vector2i(6, 14)])
+ricochet_decor_corner_top_right_tiles = Array[Vector2i]([Vector2i(4, 14)])
+ricochet_decor_corner_bottom_left_tiles = Array[Vector2i]([Vector2i(9, 17)])
+ricochet_decor_corner_bottom_right_tiles = Array[Vector2i]([Vector2i(1, 17)])
+ricochet_decor_vertical_tiles = Array[Vector2i]([Vector2i(5, 12)])
+background_tiles = Array[Vector2i]([Vector2i(34, 1)])
+background_margin_tiles = 8
+tile_map_layer_pillar = NodePath("TileMapLayer2")
+pillar_top_tiles = Array[Vector2i]([Vector2i(0, 8)])
+pillar_bottom_tiles = Array[Vector2i]([Vector2i(0, 9), Vector2i(1, 9), Vector2i(2, 9), Vector2i(3, 9)])
+barrel_abyss_submerged_atlas_coords = Vector2i(0, 0)
+tile_map_layer_door = NodePath("TileMapLayer2")
+door_closed_tiles = Array[Vector2i]([Vector2i(0, 18)])
+door_open_tiles = Array[Vector2i]([Vector2i(11, 21)])
+tile_map_layer_exit = NodePath("TileMapLayer2")
+exit_tiles = Array[Vector2i]([Vector2i(0, 17)])
+door_entity_scene = ExtResource("6_door_entity_scene")
+exit_entity_scene = ExtResource("7_exit_entity_scene")
+wall_switch_scene = ExtResource("8_wall_switch_scene")
+generate_on_ready = false
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2051471416]
+z_index = -20
+z_as_relative = false
+texture_filter = 1
+tile_set = ExtResource("2_tile_set_main")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1902175949]
+z_index = -19
+z_as_relative = false
+texture_filter = 1
+tile_set = ExtResource("3_tile_set_overlay")

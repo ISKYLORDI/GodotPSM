@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://4ajvanam4cxn"]
+
+[ext_resource type="Script" uid="uid://ckcvtdkhetro6" path="res://breakable_pillar.gd" id="1_pillar_script"]
+[ext_resource type="Texture2D" uid="uid://b3gemk8ej2t85" path="res://Resources/Tech Dungeon Roguelite - Asset Pack (v7)/Props and Items/props and items x1.png" id="2_props_tex"]
+
+[node name="BreakablePillar" type="Sprite2D" unique_id=500821298]
+texture_filter = 1
+texture = ExtResource("2_props_tex")
+hframes = 24
+vframes = 22
+frame = 216
+script = ExtResource("1_pillar_script")
+liquid_neighbor_count = 6
+
+[node name="Top" type="Sprite2D" parent="." unique_id=1749112051]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("2_props_tex")
+hframes = 24
+vframes = 22
+frame = 192

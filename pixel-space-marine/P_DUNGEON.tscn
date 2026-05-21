@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cgmh1ceh16rtt"]
+
+[ext_resource type="PackedScene" uid="uid://duuk2ikwjrope" path="res://GameSystemNode.tscn" id="1_he8ct"]
+[ext_resource type="PackedScene" uid="uid://4413ryvo3f2p" path="res://DungeonGeneratorNode.tscn" id="2_xb228"]
+
+[node name="P_DUNGEON" type="Node2D"]
+
+[node name="DungeonGenerator" parent="." unique_id=1563182019 instance=ExtResource("2_xb228")]
+
+[node name="GameSystem" parent="." unique_id=952404263 instance=ExtResource("1_he8ct")]

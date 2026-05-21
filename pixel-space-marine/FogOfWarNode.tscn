@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dffecv4u4hmqm"]
+
+[ext_resource type="Script" uid="uid://drm38it1emq64" path="res://fog_of_war.gd" id="1_a808f"]
+
+[node name="FogofWar" type="Node2D" unique_id=615154591]
+script = ExtResource("1_a808f")
+vision_radius = 10

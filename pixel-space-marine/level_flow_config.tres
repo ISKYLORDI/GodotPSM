@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="LevelFlowConfig" format=3 uid="uid://bwl73gka17qoq"]
+
+[ext_resource type="Script" uid="uid://cnsiawjlw81lh" path="res://level_flow_config.gd" id="1_cfg"]
+[ext_resource type="PackedScene" uid="uid://d3wjgve5isb6r" path="res://Levels/Sublevel_1.tscn" id="2_1nx0m"]
+[ext_resource type="Script" uid="uid://34nl4cq14fq8" path="res://floor_spec.gd" id="2_spec"]
+[ext_resource type="PackedScene" uid="uid://berw0wi80nffh" path="res://Levels/Sublevel_2.tscn" id="3_2cf5b"]
+[ext_resource type="PackedScene" uid="uid://d0ocx1d3lv4i0" path="res://Levels/Sublevel_3.tscn" id="4_biup4"]
+[ext_resource type="PackedScene" uid="uid://bet1rkcqfcp7s" path="res://Levels/PresetFloorLayoutTemplate.tscn" id="4_d1h5c"]
+[ext_resource type="PackedScene" uid="uid://bfskjpiusbi22" path="res://Levels/Sublevel_4.tscn" id="6_h3s80"]
+
+[sub_resource type="Resource" id="Resource_2cf5b"]
+script = ExtResource("2_spec")
+source_type = 0
+layout_scene = ExtResource("2_1nx0m")
+metadata/_custom_type_script = "uid://34nl4cq14fq8"
+
+[sub_resource type="Resource" id="Resource_d1h5c"]
+script = ExtResource("2_spec")
+source_type = 0
+layout_scene = ExtResource("3_2cf5b")
+metadata/_custom_type_script = "uid://34nl4cq14fq8"
+
+[sub_resource type="Resource" id="Resource_biup4"]
+script = ExtResource("2_spec")
+source_type = 0
+layout_scene = ExtResource("4_biup4")
+metadata/_custom_type_script = "uid://34nl4cq14fq8"
+
+[sub_resource type="Resource" id="Resource_h3s80"]
+script = ExtResource("2_spec")
+source_type = 0
+layout_scene = ExtResource("4_d1h5c")
+metadata/_custom_type_script = "uid://34nl4cq14fq8"
+
+[sub_resource type="Resource" id="Resource_4linw"]
+script = ExtResource("2_spec")
+source_type = 0
+layout_scene = ExtResource("6_h3s80")
+metadata/_custom_type_script = "uid://34nl4cq14fq8"
+
+[resource]
+script = ExtResource("1_cfg")
+total_floors = 5
+floor_specs = Array[ExtResource("2_spec")]([SubResource("Resource_2cf5b"), SubResource("Resource_d1h5c"), SubResource("Resource_biup4"), SubResource("Resource_h3s80"), SubResource("Resource_4linw")])

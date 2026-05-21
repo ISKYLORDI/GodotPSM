@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dkx8g5mwvpkx7"]
+
+[ext_resource type="Script" uid="uid://ccu4gcdsoedww" path="res://audiomanager.gd" id="1_script"]
+
+[node name="AudioManager" type="Node" unique_id=82660812]
+script = ExtResource("1_script")
+sfx_volume_db = -3.0
+footstep_volume_db = -8.0
