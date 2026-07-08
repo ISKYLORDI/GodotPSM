@@ -15,7 +15,6 @@ y_sort_enabled = true
 script = ExtResource("1_game_system")
 
 [node name="LevelFlowController" parent="." unique_id=663118049 instance=ExtResource("2_level_flow")]
-current_floor_index = 4
 
 [node name="TurnController" parent="." unique_id=1842462653 instance=ExtResource("3_turn")]
 projectile_travel_min_duration = 0.05
@@ -35,4 +34,3 @@ z_index = -10
 z_as_relative = false
 
 [node name="FogofWar" parent="." unique_id=615154591 instance=ExtResource("6_fog")]
-unseen_alpha = 0.6

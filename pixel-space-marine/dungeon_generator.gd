@@ -2367,6 +2367,9 @@ func _prepare_transparent_wall_layers_for_render() -> void:
 	var max_layer_idx := 1 if _can_use_layered_composites() else 0
 	for i in range(max_layer_idx + 1):
 		_ensure_transparent_layer_exists(i)
+	for layer in _created_transparent_overlay_layers:
+		if layer != null and is_instance_valid(layer) and layer not in _transparent_render_layers:
+			_transparent_render_layers.append(layer)
 	for layer in _transparent_render_layers:
 		if layer == null or not is_instance_valid(layer):
 			continue
@@ -2502,15 +2505,18 @@ func _prepare_ricochet_wall_layers_for_render() -> void:
 	var base := _get_or_create_ricochet_wall_layer()
 	if base != null:
 		_ricochet_render_layers.append(base)
-		base.clear()
-		_sync_ricochet_wall_layer_hsv(base)
 	for layer in _created_ricochet_overlay_layers:
 		if layer != null and is_instance_valid(layer) and layer not in _ricochet_render_layers:
 			_ricochet_render_layers.append(layer)
-			layer.clear()
-			_sync_ricochet_wall_layer_hsv(layer)
 	if _can_use_layered_composites():
 		_ensure_ricochet_layer_exists(1)
+	for layer in _ricochet_render_layers:
+		if layer == null or not is_instance_valid(layer):
+			continue
+		if not _layer_is_safe_special_wall_overlay(layer):
+			continue
+		layer.clear()
+		_sync_ricochet_wall_layer_hsv(layer)
 
 
 func _ensure_ricochet_layer_exists(layer_index: int) -> void:
