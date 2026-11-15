@@ -1,7 +1,20 @@
 {
-  "version": "b61.421-cf36109",
-  "source_commit": "cf36109b10ac8168e274e8eb823ba59e2fa0f6d7",
+  "version": "b61.445",
+  "published_at": "2026-11-15T21:21:05.633929+08:00",
+  "source_commit": "9055285fcb51b8cf1ea776529afa876e7488794f",
   "source_worktree_dirty": true,
-  "pck_bytes": 85540140,
-  "pck_sha256": "6de3e9d30c8939e287db44ae97e91b06b4e7f69511131c174d3c546e862e7f84"
+  "pck_bytes": 87173044,
+  "pck_sha256": "f35870101296677ae5531e0e8207c333852ebdb72aa2f044751e4a1c75bb777e",
+  "changes": [
+    "industrial backgrounds and entry roofs enabled for every industrial floor",
+    "stable per-chain and per-floor art variants",
+    "verification assets and isolated saves excluded"
+  ],
+  "verification": {
+    "d3d12_checks": 41,
+    "opengl_checks": 41,
+    "gdscript_failed": 0,
+    "package_gate": "passed",
+    "local_web": "passed"
+  }
 }
