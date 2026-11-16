@@ -1,20 +1,28 @@
 {
-  "version": "b61.445",
-  "published_at": "2026-11-15T21:21:05.633929+08:00",
-  "source_commit": "9055285fcb51b8cf1ea776529afa876e7488794f",
+  "version": "b61.446",
+  "published_at": "2026-11-16T23:29:36.665170+08:00",
+  "source_commit": "ad6d56682b16ac64890877b7ec8ee13201a049ed",
   "source_worktree_dirty": true,
-  "pck_bytes": 87173044,
-  "pck_sha256": "f35870101296677ae5531e0e8207c333852ebdb72aa2f044751e4a1c75bb777e",
+  "source_scope": "Current main workspace, including uncommitted changes",
+  "source_manifest_sha256": "354ba996a1eb3f5fe636480dee47951a34835db4079bef9dd67768bbc21656da",
+  "pck_bytes": 87349800,
+  "pck_sha256": "7c4cea3ffad8f9224baf3d71088816e1f3fbc012d0f2642556fbef4af1817f86",
   "changes": [
-    "industrial backgrounds and entry roofs enabled for every industrial floor",
-    "stable per-chain and per-floor art variants",
-    "verification assets and isolated saves excluded"
+    "Player armor bar at foot level, icon and segments without a number; native loss and break previews blink",
+    "Warprep limits each handheld type to one copy across active and reserve inventory; old launch templates normalized",
+    "Retained underside X framing and supported pixel thrusters without large hanging lower structures",
+    "Current integrated workspace updates"
   ],
   "verification": {
-    "d3d12_checks": 41,
-    "opengl_checks": 41,
+    "rewind_suites": 110,
+    "rewind_failed": 0,
+    "gdscript_files": 840,
     "gdscript_failed": 0,
+    "font_checks": 10,
+    "font_failed": 0,
     "package_gate": "passed",
-    "local_web": "passed"
+    "local_web": "passed",
+    "local_web_console_suspected_errors": 0,
+    "source_stable_during_export": true
   }
 }
